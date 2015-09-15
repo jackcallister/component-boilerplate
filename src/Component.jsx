@@ -1,9 +1,8 @@
-import React from 'react';
-import classnames from 'classnames';
+import React from 'react'
 
 export default class Component {
 
   render() {
-    return <h1>Hello, World</h1>;
+    return <h1>Hello, World</h1>
   }
 }

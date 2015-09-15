@@ -1,17 +1,16 @@
-import specHelper from './support/specHelper';
-import React from 'react';
-import TestUtils from 'react/lib/ReactTestUtils';
-import assert from 'assert';
-import Component from '../src/Component';
+import React from 'react'
+import assert from 'assert'
+import cheerio from 'cheerio'
+import Component from '../src/Component'
 
 describe('Component', () => {
-  describe('render', () => {
-    it('should work', () => {
+  it('should render', () => {
+    const string = React.renderToStaticMarkup(<Component />)
+    const $ = cheerio.load(string)
+    const componentDOM = $('h1')
 
-      const component = TestUtils.renderIntoDocument(<Component />);
-      const componentDOM = React.findDOMNode(component);
+    console.log()
 
-      assert.equal('Hello, World', componentDOM.innerHTML);
-    });
-  });
-});
+    assert.equal('<h1>Hello, World</h1>', $.html())
+  })
+})
